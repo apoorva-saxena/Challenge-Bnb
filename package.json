@@ -17,9 +17,12 @@
   },
   "homepage": "https://github.com/apsaxena24/Challenge-Bnb#readme",
   "dependencies": {
+    "body-parser": "^1.15.2",
     "casperjs": "^1.1.1",
     "ejs": "^2.4.2",
     "express": "^4.14.0",
-    "phantomjs": "^2.1.7"
+    "phantomjs": "^2.1.7",
+    "rethinkdb": "^2.3.2",
+    "thinky": "^2.3.2"
   }
 }

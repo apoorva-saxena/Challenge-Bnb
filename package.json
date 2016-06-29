@@ -1,0 +1,19 @@
+{
+  "name": "challenge-bnb",
+  "version": "1.0.0",
+  "description": "MakersBNB using node",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/apsaxena24/Challenge-Bnb.git"
+  },
+  "author": "Apoorva",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/apsaxena24/Challenge-Bnb/issues"
+  },
+  "homepage": "https://github.com/apsaxena24/Challenge-Bnb#readme"
+}

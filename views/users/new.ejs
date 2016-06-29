@@ -1,12 +1,30 @@
 <!doctype html>
 <html>
-
 <head>
-    <title>Sign Up Makers BNB</title>
+    <title>Sign up Challenge-BNB</title>
 </head>
-
 <body>
     <div>
         <h1>Please sign up</h1>
+        <form action='/users' method='post' id='signUpForm'>
+            <label for='email'>
+                Email:
+                <input name='email' type='email'>
+            </label>
+            <label for='name'>
+                Name:
+                <input name='name' type='text'>
+            </label>
+            <label for='password'>
+                Password:
+                <input name='password' type='password'>
+            </label>
+            <label for='passwordConfirmation'>
+                Password Confirmation:
+                <input name='passwordConfirmation' type='password'>
+            </label>
+            <input type='submit' value='Sign up' name='signup'>
+        </form>
     </div>
 </body>
+</html>

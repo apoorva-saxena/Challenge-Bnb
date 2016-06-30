@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var user = require('./src/user');
+var space = require('./src/space');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 
@@ -33,19 +34,34 @@ app.get("/users/login", function(req, res) {
 });
 
 app.get("/users/:email", function(req, res) {
-
     user.getUser(req, res);
 });
 
+//need to get this working
 app.post('/users/login', function(req, res) {
     // sess = req.session;
-    val = user.isValidPassword(req.body.email, req.body.password)
+    val = user.isValidPassword(req.body.email, req.body.password);
     if (val === true )
     {
       sess.email = req.body.email;
     }
-    console.log(val)
-    res.redirect('/')
+
+    res.redirect('/');
+});
+
+//spaces
+app.get("/spaces/addspace", function(req, res) {
+    res.render("spaces/addspace");
+});
+
+app.post("/spaces/addspace", function(req, res) {
+  space.add(req, res);
+  res.redirect('/');
+});
+
+app.get("spaces/:id", function(req, res) {
+  space.getSpaceByName(req, res);
+  console.log(req);
 });
 
 app.listen(3000, function() {

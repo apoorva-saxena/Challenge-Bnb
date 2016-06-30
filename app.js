@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
-var User = require('./src/user');
+var user = require('./src/user');
 
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
@@ -12,32 +12,8 @@ app.get("/users/new", function(req, res) {
   res.render("users/new");
 });
 
-var thinky = require('thinky')({
-  host: 'localhost',
-  port: 28015,
-  db: 'challengeBnbTest'
-});
-
-var r = thinky.r;
-var type = thinky.type;
-
-var User = thinky.createModel("User", {
-  name: type.string(),
-  email: type.string(),
-  password: type.string()
-});
-
 app.post("/users", function(req, res) {
-  var user = new User({
-    name: req.body.name,
-     email: req.body.email,
-     password: req.body.password
-  });
-  user.save().then(function(result) {
-        res.json({
-            result: result
-        });
-    });
+  user.add(req, res);
   res.redirect("/");
 });
 
@@ -45,6 +21,25 @@ app.get("/", function(req, res) {
   res.render("index");
 });
 
+app.get("/users/signin", function(req, res) {
+  res.render("users/signin");
+});
+
+app.get("/users/:email", function(req, res) {
+  user.getUser(req, res);
+});
+
+app.post('/users/signin', function(req, res) {
+  user.getUser(req, res);
+  console.log(res);
+  if (req.params.password === res.password) {
+    console.log('correct password');
+    res.redirect('/');
+  } else {
+    console.log('invalid');
+    res.send('invalid password');
+  }
+});
 
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!');

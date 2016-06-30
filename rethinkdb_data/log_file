@@ -19,3 +19,13 @@
 2016-06-29T22:32:22.973290000 2792.809034s info: Table 83c9b8cd-13fd-4342-819d-ddbdd7164ffd: Starting a new Raft election for term 1.
 2016-06-29T22:32:22.973759000 2792.809503s info: Table 83c9b8cd-13fd-4342-819d-ddbdd7164ffd: Added replica on this server.
 2016-06-29T22:32:23.002003000 2792.837747s info: Table 83c9b8cd-13fd-4342-819d-ddbdd7164ffd: This server is Raft leader for term 1. Latest log index is 0.
+2016-06-30T01:48:48.312713000 13087.141353s notice: Removing file /Users/makers/Desktop/practise/Challenge-Bnb/rethinkdb_data/6bfe8148-17cc-4ad5-90fd-1cc23ab36a2c
+2016-06-30T01:48:48.312728000 13087.141367s info: Table 6bfe8148-17cc-4ad5-90fd-1cc23ab36a2c: Deleted the table.
+2016-06-30T01:48:57.661500000 13096.489917s info: Table 1a424250-ad0e-432b-ac39-952ef493c6dc: Starting a new Raft election for term 1.
+2016-06-30T01:48:57.661956000 13096.490373s info: Table 1a424250-ad0e-432b-ac39-952ef493c6dc: Added replica on this server.
+2016-06-30T01:48:57.685735000 13096.514152s info: Table 1a424250-ad0e-432b-ac39-952ef493c6dc: This server is Raft leader for term 1. Latest log index is 0.
+2016-06-30T02:01:22.398590000 13841.210498s notice: Removing file /Users/makers/Desktop/practise/Challenge-Bnb/rethinkdb_data/1a424250-ad0e-432b-ac39-952ef493c6dc
+2016-06-30T02:01:22.398601000 13841.210508s info: Table 1a424250-ad0e-432b-ac39-952ef493c6dc: Deleted the table.
+2016-06-30T02:01:40.684360000 13859.495867s info: Table 7d502eb4-c5c1-4657-8f82-7d2421157954: Starting a new Raft election for term 1.
+2016-06-30T02:01:40.684864000 13859.496372s info: Table 7d502eb4-c5c1-4657-8f82-7d2421157954: Added replica on this server.
+2016-06-30T02:01:40.714152000 13859.525660s info: Table 7d502eb4-c5c1-4657-8f82-7d2421157954: This server is Raft leader for term 1. Latest log index is 0.

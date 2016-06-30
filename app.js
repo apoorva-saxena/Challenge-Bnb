@@ -25,10 +25,6 @@ app.post("/users/new", function(req, res) {
     res.redirect("/");
 });
 
-app.get("/", function(req, res) {
-    res.render("index");
-});
-
 app.get("/users/login", function(req, res) {
     res.render("users/login");
 });
@@ -59,9 +55,12 @@ app.post("/spaces/addspace", function(req, res) {
   res.redirect('/');
 });
 
-app.get("spaces/:id", function(req, res) {
+app.get("/spaces/getSpace/:id", function(req, res) {
   space.getSpaceByName(req, res);
-  console.log(req);
+});
+
+app.get("/", function(req, res) {
+  space.getAll(req, res);
 });
 
 app.listen(3000, function() {

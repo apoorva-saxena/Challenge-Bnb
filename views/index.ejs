@@ -1,1 +1,8 @@
 <h1> Hello </h1>
+
+<table>
+<% spaces.forEach(function(space) { %>
+  <tr> <%=space.name%>---<%=space.description%>---£<%=space.price%>
+  </tr>
+  <% }); %>
+</table>

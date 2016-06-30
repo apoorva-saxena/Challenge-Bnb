@@ -25,8 +25,16 @@ exports.add = function(req, res) {
     });
 };
 
-exports.getSpaceWithName = function(req, res) {
-    User.get(req.params.id).run().then(function(gspace) {
+exports.getSpaceByName = function(req, res) {
+    Space.get(req.params.id).run().then(function(gspace) {
         res.json(gspace);
     });
+};
+
+exports.getAll = function (req, res) {
+  Space.run().then(function(spaces) {
+    res.render("index", {spaces: spaces});
+  }).error(function(err) {
+    res.json({ message: err });
+  });
 };

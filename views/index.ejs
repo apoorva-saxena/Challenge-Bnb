@@ -1,8 +1,28 @@
 <h1> Hello </h1>
 
+<form action="/users/logout" method="post">
+  <input type='submit' value='Sign out' name='signut'>
+</form>
+
 <table>
-<% spaces.forEach(function(space) { %>
-  <tr> <%=space.name%>---<%=space.description%>---£<%=space.price%>
-  </tr>
-  <% }); %>
+    <thead>
+        <td>name</td>
+        <td>description</td>
+        <td>price</td>
+    </thead>
+    <tbody>
+        <% spaces.forEach(function(space) { %>
+            <tr>
+                <td>
+                    <%=space.name%>
+                </td>
+                <td>
+                    <%=space.description%>
+                </td>
+                <td>£
+                    <%=space.price%>
+                </td>
+            </tr>
+            <% }); %>
+    </tbody>
 </table>

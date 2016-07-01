@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+    <title>Booking Page</title>
+</head>
+<body>
+    <div>
+        <h1>Make your booking</h1>
+        <form action='/booking/new' method='post' id='bookingForm'>
+            <label for='spacename'>
+                Space Name:
+                <input name='spacename' type='text' required>
+            </label>
+            <label for='date'>
+                Date:
+                <input name='date' type='date' required>
+            </label>
+            <label for='guestemailid'>
+                Guest Email ID:
+                <input name='guestemailid' type='email' required>
+            </label>
+            <input type='submit' value='Book the place' name='bookbtn'>
+        </form>
+    </div>
+</body>
+</html>

@@ -7,18 +7,18 @@ var r = thinky.r;
 var type = thinky.type;
 
 var Space = thinky.createModel("Space", {
-  name: type.string(),
-  description: type.string(),
-  price: type.number(),
-  available: type.boolean(),
+    name: type.string(),
+    description: type.string(),
+    price: type.number(),
+    available: type.boolean(),
 });
 
 exports.add = function(req, res) {
     var space = new Space({
-      name: req.body.name,
-      description: req.body.description,
-      price: req.body.price,
-      available: true
+        name: req.body.name,
+        description: req.body.description,
+        price: req.body.price,
+        available: true
     });
     space.save().then(function(result) {
         res.json(result);
@@ -31,10 +31,14 @@ exports.getSpaceByName = function(req, res) {
     });
 };
 
-exports.getAll = function (req, res) {
-  Space.run().then(function(spaces) {
-    res.render("index", {spaces: spaces});
-  }).error(function(err) {
-    res.json({ message: err });
-  });
+exports.getAll = function(req, res) {
+    Space.run().then(function(spaces) {
+        res.render("index", {
+            spaces: spaces
+        });
+    }).error(function(err) {
+        res.json({
+            message: err
+        });
+    });
 };

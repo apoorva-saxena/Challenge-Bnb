@@ -34,16 +34,15 @@ exports.getUser = function(req, res) {
     });
 };
 
-exports.isValidPassword = function(email, input_password) {
-  this.val = false;
-  User.get(email).run().then(function(guser) {
-    if (guser.password == input_password) {
-
-        return true;
+exports.isValidPassword = function(req, res) {
+  User.get(req.body.email).run().then(function(guser) {
+    if (guser.password === req.body.password) {
+      console.log('correct password');
+      req.session.email = req.body.email;
+      res.redirect('/');
     } else {
-
-        return false;
+      console.log('incorrect password');
+      res.redirect('/users/login');
     }
   });
-  return this.val;
 };

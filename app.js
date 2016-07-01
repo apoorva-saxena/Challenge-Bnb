@@ -3,6 +3,7 @@ var app = express();
 var bodyParser = require('body-parser');
 var user = require('./src/user');
 var space = require('./src/space');
+var booking = require('./src/booking');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 
@@ -35,13 +36,11 @@ app.get("/users/:email", function(req, res) {
 
 //need to get this working
 app.post('/users/login', function(req, res) {
-    // sess = req.session;
-    val = user.isValidPassword(req.body.email, req.body.password);
-    if (val === true )
-    {
-      sess.email = req.body.email;
-    }
+    user.isValidPassword(req, res);
+});
 
+app.post('/users/logout', function(req, res) {
+    req.session.destroy();
     res.redirect('/');
 });
 
@@ -51,17 +50,40 @@ app.get("/spaces/addspace", function(req, res) {
 });
 
 app.post("/spaces/addspace", function(req, res) {
-  space.add(req, res);
-  res.redirect('/');
+    space.add(req, res);
+    res.redirect('/');
 });
 
 app.get("/spaces/getSpace/:id", function(req, res) {
-  space.getSpaceByName(req, res);
+    space.getSpaceByName(req, res);
 });
 
 app.get("/", function(req, res) {
-  space.getAll(req, res);
+    if (!req.session.email) {
+        res.send('Please login to view listings.');
+    } else {
+        console.log(req.session.email);
+        space.getAll(req, res);
+    }
 });
+
+//bookings
+app.get("/booking/new", function(req, res) {
+    res.render("booking/new");
+});
+
+app.post("/booking/new", function(req, res) {
+    booking.add(req, res);
+    res.redirect('/');
+});
+
+// app.post("/booking/:user_id"), function(req, res) {
+//   if (!req.session.email) {
+//       res.send('NOT LOGGED IN.')
+//   } else {
+//
+//   }
+// }
 
 app.listen(3000, function() {
     console.log('Example app listening on port 3000!');

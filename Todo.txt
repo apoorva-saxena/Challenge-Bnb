@@ -1,0 +1,13 @@
+1. route to view all bookings by user.
+2. Add session code to all routes.
+3. Make apis restful.
+4. Flash on login/logout.
+5. Refactoring: Move routes to respective files. (space, user and bookings)
+6. Move new booking to '/' route so that user can book and see the listings
+on the same page.
+7. Error handling for invalid passwords, non existing users etc.
+8. Tests
+9. Add a foreign key from booking to users and booking to spaces. (Verify
+if valid.)
+10. Add Total expense for user and space. i.e go through all bookings for
+this user or space and add all price.

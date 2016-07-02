@@ -28,17 +28,21 @@ exports.add = function(req, res) {
     });
 };
 
+//get user
 exports.getUser = function(req, res) {
     User.get(req.params.email).run().then(function(guser) {
         res.json(guser);
     });
 };
 
+//validating password
 exports.isValidPassword = function(req, res) {
   User.get(req.body.email).run().then(function(guser) {
     if (guser.password === req.body.password) {
       console.log('correct password');
+
       req.session.email = req.body.email;
+
       res.redirect('/');
     } else {
       console.log('incorrect password');

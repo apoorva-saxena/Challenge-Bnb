@@ -34,7 +34,7 @@ app.get("/users/:email", function(req, res) {
     user.getUser(req, res);
 });
 
-//need to get this working
+//user log in log out
 app.post('/users/login', function(req, res) {
     user.isValidPassword(req, res);
 });
@@ -77,6 +77,11 @@ app.post("/booking/new", function(req, res) {
     res.redirect('/');
 });
 
+//get bookings by email
+app.get("/booking/:guestemailid", function(req, res) {
+  booking.getBookingsByEmail(req, res);
+});
+
 // app.post("/booking/:user_id"), function(req, res) {
 //   if (!req.session.email) {
 //       res.send('NOT LOGGED IN.')
@@ -85,6 +90,6 @@ app.post("/booking/new", function(req, res) {
 //   }
 // }
 
-app.listen(3000, function() {
-    console.log('Example app listening on port 3000!');
-});
+  app.listen(3000, function() {
+      console.log('Example app listening on port 3000!');
+  });
